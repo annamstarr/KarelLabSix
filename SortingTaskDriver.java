@@ -1,7 +1,7 @@
 
 /**
-   @Author:
-      Date:
+   @Author: A. Starr
+      Date: 9/27/17
    Teacher: Appel
   */
 import kareltherobot.*;
@@ -18,7 +18,7 @@ public class SortingTaskDriver implements Directions
         
         
         //Your code goes here:
-        Problem1 karel = new Problem1(8, 2, West, 0);  
+        Problem1 karel = new Problem1(1, 1, East, 0);  
         karel.sortBeepers();
         karel.turnOff();  
     } 
@@ -70,7 +70,7 @@ public class SortingTaskDriver implements Directions
         World.setBeeperColor(Color.black);
         World.setStreetColor(Color.gray);
         World.setNeutroniumColor(Color.black);
-        World.setDelay(2);  
+        World.setDelay(5);  
         World.setVisible(true);
     }
 }

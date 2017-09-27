@@ -16,7 +16,9 @@ public class BeeperBot extends Robot
     }
     
     public void findAndCountBeepers() {
-        
+        while (frontIsClear()) {
+            collectBeeperSteeple();
+        }
     }
     
     public int[] getBeeperList() {
@@ -24,12 +26,6 @@ public class BeeperBot extends Robot
             return beeperList;
     }
     
-    
-    public void runRace() {
-        while (frontIsClear()) {
-            collectBeeperSteeple();
-        }
-    }
     public void collectBeeperSteeple() {
         findBeepers();
         }
@@ -48,8 +44,8 @@ public class BeeperBot extends Robot
             pickBeeper();
             tempCount++;
             move();
-            }
-        column [0]= tempCount
+        }
+        column [0]= tempCount;
         resetTempCount();
     }
     public void faceNorth() {
@@ -74,7 +70,7 @@ public class BeeperBot extends Robot
         }
     }
     public void resetTempCount() {
-        tempcount= 0
+        tempcount= 0;
     }
     
 }
