@@ -19,13 +19,18 @@ public class Problem1 extends Robot
         for (int x=0; x<8; x++) {
             collectBeeperSteeple();
         }
-        sortList();
+        rearrange();
     }
     public void collectBeeperSteeple() {
+        countBeepers();
+        resetPosition();
+        printBeeperList();
+    }
+    public void countBeepers() {
         collectColumn();
         beeperList [index]= tempCount;
-        printBeeperList();
-        resetPosition();
+        index++;
+        tempCount= 0;
     }
     public void collectColumn() {
         faceNorth();
@@ -40,16 +45,6 @@ public class Problem1 extends Robot
             turnLeft();
         }
     }
-    public void faceSouth() {
-        while(!facingSouth()) {
-               turnLeft();
-            }
-        }
-        public void faceEast() {
-        while (!facingEast()) {
-            turnLeft();
-        }
-    }
     public void resetPosition() {
         faceSouth();
         while (frontIsClear()) {
@@ -57,36 +52,45 @@ public class Problem1 extends Robot
         }
         faceEast();
         move();
-        index++;
-        tempCount= 0;
     }
-    public void sortList() {
-        for (int x=0; x<8; x++) {
-        if (beeperList[index] > beeperList[index+1]) {
-            sortedList[index] = beeperList[index+1];
-            sortedList[index+1] = beeperList[index];
+    public void faceSouth() {
+        while(!facingSouth()) {
+               turnLeft();
+            }
         }
-        else {
-            sortedList[index+1] = beeperList[index+1];
-            sortedList[index]= beeperList[index];
+    public void faceEast() {
+        while (!facingEast()) {
+            turnLeft();
         }
-        printSortedList();
     }
-}
     public void printBeeperList() {
-        System.out.println();
+        System.out.println("Beeper List");
         for (int value: beeperList) {
             System.out.print (value + "," );
         }
         System.out.println();
     }
+    
+    public void rearrange() {
+        sortList();
+        printSortedList();
+    }
+    public void sortList() {
+        if (beeperList[0] > beeperList[1]) {
+            sortedList[0] = beeperList[1];
+            sortedList[1] = beeperList[0];
+        }
+        else {
+            sortedList[1] = beeperList[1];
+            sortedList[0]= beeperList[0];
+        }
+    }
     public void printSortedList() {
-        System.out.println();
+        System.out.println("Sorted List");
         for (int value: sortedList) {
             System.out.print (value + "," );
         }
         System.out.println();
     }
-   
 }
 

@@ -26,7 +26,7 @@ public class RobotDriver implements Directions
         World.setBeeperColor(Color.magenta);
         World.setStreetColor(Color.blue);
         World.setNeutroniumColor(Color.green.darker());
-        World.setDelay(3);  
+        World.setDelay(10);  
         World.setVisible(true);
     }
 }
